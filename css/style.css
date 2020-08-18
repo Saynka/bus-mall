@@ -4,6 +4,7 @@ body {
   font-size-adjust: large;
 }
 
-H1 {
+#picture-array {
+  max-width: 1;
   
 }
