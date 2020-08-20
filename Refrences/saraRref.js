@@ -1,11 +1,10 @@
 'use strict';
-
-var productsArray;
+let productsArray;
 const tableParent = document.getElementById('table');
 const submission = document.getElementById('submission');
 const parentElement = document.getElementById('product-display');
-var votes = 25;
-var uniqueImageArray = [];
+let votes = 25;
+let uniqueImageArray = [];
 
 function checkLocalStorageToFillArray() {
   if (localStorage.getItem('products') === null) {
@@ -13,13 +12,13 @@ function checkLocalStorageToFillArray() {
     instantiateNewProductObjects();
   }
   else {
-    var getProducts = localStorage.getItem('products');
+    let getProducts = localStorage.getItem('products');
     productsArray = JSON.parse(getProducts);
   }
 }
 
 function storeLocalData() {
-  var stringifyObjects = JSON.stringify(productsArray);
+  let stringifyObjects = JSON.stringify(productsArray);
   localStorage.setItem('products', stringifyObjects);
 }
 
@@ -57,7 +56,7 @@ function generateRandomIndexNumber(max) {
 }
 
 function generateUniqueRandomImage() {
-  var randomIndexNumber = generateRandomIndexNumber(productsArray.length);
+  let randomIndexNumber = generateRandomIndexNumber(productsArray.length);
 
   while (uniqueImageArray.includes(randomIndexNumber)) {
     randomIndexNumber = generateRandomIndexNumber(productsArray.length);
@@ -75,12 +74,12 @@ function generateUniqueRandomImage() {
 
 
 function renderSingleImageElements() {
-  var randomImageObject = generateUniqueRandomImage();
-  var imageElement = document.createElement('img');
+  let randomImageObject = generateUniqueRandomImage();
+  let imageElement = document.createElement('img');
   imageElement.setAttribute('src', randomImageObject.filePath);
   imageElement.setAttribute('alt', randomImageObject.name);
   imageElement.setAttribute('title', randomImageObject.name);
-  var input = document.createElement('input');
+  let input = document.createElement('input');
   input.setAttribute('type', 'radio');
   input.setAttribute('class', 'productChoice');
   input.setAttribute('name', 'productChoice');
@@ -97,7 +96,7 @@ function renderThreeNewImages() {
 }
 
 function renderEmptyTable() {
-  for (var i = 0; i < productsArray.length; i++) {
+  for (let i = 0; i < productsArray.length; i++) {
     var tableRow = document.createElement('tr');
     tableRow.textContent = productsArray[i].name;
     tableParent.appendChild(tableRow);
@@ -105,7 +104,7 @@ function renderEmptyTable() {
 }
 
 function renderTotalsTable() {
-  for (var i = 0; i < productsArray.length; i++) {
+  for (let i = 0; i < productsArray.length; i++) {
     var tableRow = document.createElement('tr');
     tableRow.textContent = productsArray[i].name;
     tableParent.appendChild(tableRow);
@@ -116,17 +115,17 @@ function renderTotalsTable() {
 }
 
 function createLabelsArray() {
-  var labelsArray = [];
-  for (var i = 0; i < productsArray.length; i++) {
+  let labelsArray = [];
+  for (let i = 0; i < productsArray.length; i++) {
     labelsArray.push(productsArray[i].name);
   }
   return labelsArray;
 }
 
 function createPercentageDataArray(){
-  var percentageDataArray = [];
+  let percentageDataArray = [];
 
-  for (var i = 0; i < productsArray.length; i++) {
+  for (let i = 0; i < productsArray.length; i++) {
     if (parseInt(productsArray[i].clicks) === 0 || parseInt(productsArray[i].displayCount) === 0 ) {
       percentageDataArray.push(0);
     } else {
@@ -137,16 +136,16 @@ function createPercentageDataArray(){
 }
 
 function createObjClicksDataArray() {
-  var objClicksDataArray = [];
-  for (var i = 0; i < productsArray.length; i++) {
+  let objClicksDataArray = [];
+  for (let i = 0; i < productsArray.length; i++) {
     objClicksDataArray.push(productsArray[i].clicks);
   }
   return objClicksDataArray;
 }
 
 function createObjViewsDataArray() {
-  var objViewsDataArray = [];
-  for (var i = 0; i < productsArray.length; i++) {
+  let objViewsDataArray = [];
+  for (let i = 0; i < productsArray.length; i++) {
     objViewsDataArray.push(productsArray[i].displayCount);
   }
   return objViewsDataArray;
@@ -357,10 +356,10 @@ function renderPercentageChart() {
 }
 
 function youreWelcome(){
-  var votingGreeterContainer = document.getElementById('thank-you-container');
-  var votingGreeter = document.getElementById('thank-you');
+  let votingGreeterContainer = document.getElementById('thank-you-container');
+  let votingGreeter = document.getElementById('thank-you');
   votingGreeter.innerHTML = '';
-  var headerElement = document.createElement('h2');
+  let headerElement = document.createElement('h2');
   headerElement.textContent = 'Thank you for voting!';
   votingGreeterContainer.appendChild(headerElement);
 }
@@ -369,14 +368,14 @@ submission.addEventListener('submit', handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
-  var choices = document.getElementsByClassName('productChoice');
-  for (var i = 0; i < choices.length; i++) {
+  let choices = document.getElementsByClassName('productChoice');
+  for (let i = 0; i < choices.length; i++) {
     if (choices[i].checked) {
       var chosenProduct = choices[i].value;
     }
   }
 
-  for (var i = 0; i < productsArray.length; i++) {
+  for (let i = 0; i < productsArray.length; i++) {
     if (productsArray[i].name === chosenProduct) {
       productsArray[i].clicks++;
     }
