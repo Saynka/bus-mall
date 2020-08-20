@@ -81,3 +81,5 @@ parentElement.addEventListener('click', handleClick);
 // initally generates the images on page load
 getRandomImage();
 getRandomImage();
+
+// 4 parts
