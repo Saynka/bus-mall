@@ -8,6 +8,13 @@ var totalClicks = 0;
 var maxClicks = 25;
 var uniqueImageArray = [];
 
+this.filepath = `../img/${name}.${ext}`;
+this.alt = name;
+this.title = name;
+this.click = 0;
+this.shown = 0;
+
+
 
 
 function Product (name){
@@ -128,10 +135,13 @@ function handleClick(event){
 parentElement.addEventListener('click', handleClick);
 
 
+// invoke of functions
+getRandomImage();
+getRandomImage();
+getRandomImage();
+buildElements();
+getRandomNumber();
 
-getRandomImage();
-getRandomImage();
-getRandomImage();
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
@@ -170,3 +180,7 @@ var myChart = new Chart(ctx, {
         }
     }
 });
+
+
+
+
