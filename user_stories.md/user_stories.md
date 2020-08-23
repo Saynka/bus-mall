@@ -12,9 +12,15 @@ response:make a array of images for the user to cycle threw
 
 2. i would like the images to not show up more then 1 time while cycling threw them. and when i reach the end of the images be shown that i have run out of images.....
 
-response: make a javascript deck of cards essentally that 
+response: make a javascript deck of cards essentally that filter out pictures that iv seen already 
 
-3. 
+* user 3
+
+3. i would like to see a chart or a graph of some kind or maybe people voting  and see the results so we can kind of filter out the things people are not that iterested in .
+
+response: i have created a list of 3 images that a user can vote on and a chart to show the results to help narrow this down.
+
+
 
 
 
